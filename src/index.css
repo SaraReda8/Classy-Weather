@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* خلفية متحركة بسيطة */
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #eabfb9;
+  }
+  50% {
+    background-color: #f5d7d4;
+  }
+  100% {
+    background-color: #eabfb9;
+  }
+}
+
+/* تعديل الـ body ليستخدم min-height بدلاً من height ويضيف padding للحواف الآمنة */
+body {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 2rem;
+  min-height: 100vh;
+  color: #222;
+  animation: backgroundAnimation 10s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* الحاوية الرئيسية للتطبيق مع دعم الاستجابة */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 112rem;
+  width: 100%;
+  gap: 4rem;
+  padding: 6rem 2rem;
+  border: 2px solid #222;
+  outline: 2px solid #222;
+  outline-offset: 1.2rem;
+}
+
+/* العنوان الرئيسي بخط جذاب */
+h1 {
+  font-family: "Lobster", "Cinzel Decorative", cursive;
+  font-weight: 400;
+  font-size: 6rem;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  background-color: #f0d2ce;
+  padding: 1.6rem 3.2rem;
+  border: none;
+  width: 100%;
+  max-width: 32rem;
+}
+
+input:focus {
+  outline: 2px solid #222;
+}
+
+.weather {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+/* تأثير ناعم عند التحويم على البطاقات */
+.day {
+  background-color: #f0d2ce;
+  padding: 1.6rem 0 2rem;
+  width: 12.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.day span {
+  font-size: 5.2rem;
+}
+
+.day.important {
+  background-color: #ecc5c0;
+  outline: 2px solid #222;
+}
+
+.loader {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+/* استجابات للشاشات المتوسطة */
+@media (max-width: 768px) {
+  .app {
+    padding: 4rem 1rem;
+    gap: 3rem;
+  }
+  .weather {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .day {
+    width: calc(50% - 1.2rem);
+  }
+}
+
+/* تعديلات إضافية للشاشات الصغيرة جدًا */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 4rem;
+  }
+  input {
+    font-size: 1.8rem;
+    padding: 1.2rem 2rem;
+  }
+  .day {
+    width: 100%;
+  }
+}
