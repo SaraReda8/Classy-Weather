@@ -20,6 +20,7 @@ function getWeatherIcon(wmoCode) {
 }
 
 function convertToFlag(countryCode) {
+  if (!countryCode || countryCode.length !== 2) return ""; // تأكد من أن رمز الدولة صالح
   const codePoints = countryCode
     .toUpperCase()
     .split("")
@@ -55,6 +56,8 @@ class App extends React.Component {
 
       const { latitude, longitude, timezone, name, country_code } =
         geoData.results.at(0);
+
+      if (!country_code) throw new Error("Country code not found");
 
       this.setState({
         displayLocation: `${name} ${convertToFlag(country_code)}`,
