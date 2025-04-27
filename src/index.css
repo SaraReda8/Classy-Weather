@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+  --primary-color: #578E7E; 
+  --secondary-color: #456b5f;
+  --white-color: #ffffff; 
+  --light-bg-color: #f0f0f0; 
+  --text-color: #111; 
+  --accent-color: #e0f2f1; 
+  --dark-color: #111;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 2rem;
+  min-height: 100vh;
+  color: var(--text-color);
+  background-color: var(--primary-color); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 112rem;
+  width: 100%;
+  gap: 4rem;
+  padding: 6rem 2rem;
+  border: 2px solid var(--text-color);
+  outline: 2px solid var(--text-color);
+  outline-offset: 1.2rem;
+  background-color: var(--white-color); 
+  border-radius: 12px;
+}
+
+h1 {
+  font-family: "Lobster", "Cinzel Decorative", cursive;
+  font-weight: 400;
+  font-size: 6rem;
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  color: var(--dark-color); 
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: var(--dark-color);
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+  background-color: var(--light-bg-color); 
+  padding: 1.6rem 3.2rem;
+  border: 2px solid var(--dark-color);
+  border-radius: 8px;
+  width: 100%;
+  max-width: 32rem;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 8px rgba(87, 142, 126, 0.6);
+}
+
+.weather {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.day {
+  background-color: var(--light-bg-color); 
+  padding: 1.6rem 0 2rem;
+  width: 12.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 8px;
+  border: 2px solid var(--dark-color); 
+}
+
+.day:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(87, 142, 126, 0.3); 
+}
+
+.day span {
+  font-size: 5.2rem;
+  color: var(--primary-color);
+}
+
+.day.important {
+  background-color: var(--accent-color); 
+  outline: 2px solid var(--text-color);
+}
+
+.loader {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+@media (max-width: 768px) {
+  .app {
+    padding: 4rem 1rem;
+    gap: 3rem;
+  }
+  .weather {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .day {
+    width: calc(50% - 1.2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 4rem;
+  }
+  input {
+    font-size: 1.8rem;
+    padding: 1.2rem 2rem;
+  }
+  .day {
+    width: 100%;
+  }
+}
